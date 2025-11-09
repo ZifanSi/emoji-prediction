@@ -1,0 +1,8 @@
+pandas
+numpy
+tweet-preprocessor
+ftfy
+clean-text[gpl]
+tqdm
+sklearn
+scipys
