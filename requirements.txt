@@ -6,3 +6,4 @@ clean-text[gpl]
 tqdm
 sklearn
 scipys
+jupyter

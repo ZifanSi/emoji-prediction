@@ -39,6 +39,16 @@ def load_preprocessed_dataset(remove_urls=True, remove_hashtags=True, remove_men
                (train, test)
     '''
 
+    script_dir = os.path.dirname(__file__)
+    cleaned_train_path = f'{script_dir}/../data/cleaned/cleaned_train_{int(remove_urls)}{int(remove_hashtags)}{int(remove_mentions)}.csv'
+    cleaned_test_path = f'{script_dir}/../data/cleaned/cleaned_test_{int(remove_urls)}{int(remove_hashtags)}{int(remove_mentions)}.csv'
+
+    if os.path.exists(cleaned_train_path) and os.path.exists(cleaned_test_path):
+        print("Loading preprocessed dataset from disk...")
+        train = pd.read_csv(cleaned_train_path)
+        test = pd.read_csv(cleaned_test_path)
+        return train, test
+
     tqdm.pandas()
 
     train, test, _, _ = load_dataset()
@@ -78,11 +88,8 @@ def load_preprocessed_dataset(remove_urls=True, remove_hashtags=True, remove_men
     train['TEXT'] = train['TEXT'].progress_apply(clean_tweet)
     test['TEXT'] = test['TEXT'].progress_apply(clean_tweet)
 
-    return train, test
+    print("Saving preprocessed dataset to disk...")
+    train.to_csv(cleaned_train_path, index=False)
+    test.to_csv(cleaned_test_path, index=False)
 
-if __name__ == "__main__":
-    train, test = load_preprocessed_dataset()
-    print("Train Sample:")
-    print(train.head())
-    print("\nTest Sample:")
-    print(test.head())
+    return train, test
