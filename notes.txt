@@ -1,0 +1,8 @@
+notebooks\01_data_exploration.ipynb
+docs\Project Progress Report Instructions.pdf
+
+src\model\KeywordBaseline.py
+
+src\dataset.py
+src\tfidf_vectorizer.py
+src\utils.py
