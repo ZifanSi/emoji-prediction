@@ -4,6 +4,6 @@ tweet-preprocessor
 ftfy
 clean-text[gpl]
 tqdm
-sklearn
-scipys
+scikit-learn
+scipy
 jupyter
