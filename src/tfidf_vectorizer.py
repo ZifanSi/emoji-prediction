@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report, accuracy_score
 from sklearn.preprocessing import LabelEncoder
 
 tfidf_vectorizer = TfidfVectorizer(
-    max_features=1000,
+    max_features=5000,
     min_df=2,
     max_df=0.8,
     stop_words='english',
