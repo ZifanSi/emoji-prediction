@@ -1,4 +1,4 @@
-# 💬 Context-Aware Emoji Prediction for Chat Messages 😏
+# 💬 Text2Moji 😏
 
 
 
